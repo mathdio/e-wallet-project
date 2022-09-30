@@ -32,7 +32,7 @@ class WalletForm extends Component {
 
   render() {
     // const { value, description, currency, method, tag } = this.state;
-    // const { currencies, currencyFetch, expenses } = this.props;
+    const { currencies } = this.props;
     return (
       <form onSubmit={ this.handleSubmit }>
         <input
