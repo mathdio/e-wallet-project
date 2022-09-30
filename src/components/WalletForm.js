@@ -1,53 +1,102 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchAPI } from '../redux/actions';
+import { fetchAPI, fetchCurrency } from '../redux/actions';
 
 class WalletForm extends Component {
+  state = {
+    value: '',
+    description: '',
+    currency: 'USD',
+    method: 'Dinheiro',
+    tag: 'Alimentação',
+  };
+
   componentDidMount() {
     const { apiFetch } = this.props;
     apiFetch();
   }
 
+  handleChange = ({ target }) => {
+    const { name, value } = target;
+    this.setState({
+      [name]: value,
+    });
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const { expenses } = this.props;
+    currencyFetch(this.state, expenses.length);
+  };
+
   render() {
-    const { currencies } = this.props;
+    // const { value, description, currency, method, tag } = this.state;
+    // const { currencies, currencyFetch, expenses } = this.props;
     return (
-      <div>
-        <input data-testid="value-input" />
-        <input data-testid="description-input" />
-        <select data-testid="currency-input">
-          {currencies.map((currency, index) => (
+      <form onSubmit={ this.handleSubmit }>
+        <input
+          data-testid="value-input"
+          name="value"
+          onChange={ this.handleChange }
+        />
+        <input
+          data-testid="description-input"
+          name="description"
+          onChange={ this.handleChange }
+        />
+        <select
+          data-testid="currency-input"
+          name="currency"
+          onChange={ this.handleChange }
+        >
+          {currencies.map((coin, index) => (
             <option
-              key={ `${currency}-${index}` }
-              value={ currency }
+              key={ `${coin}-${index}` }
+              value={ coin }
             >
-              {currency}
+              {coin}
             </option>
           ))}
         </select>
-        <select data-testid="method-input">
+        <select
+          data-testid="method-input"
+          name="method"
+          onChange={ this.handleChange }
+        >
           <option value="Dinheiro">Dinheiro</option>
           <option value="Cartão de crédito">Cartão de crédito</option>
           <option value="Cartão de débito">Cartão de débito</option>
         </select>
-        <select data-testid="tag-input">
+        <select
+          data-testid="tag-input"
+          name="tag"
+          onChange={ this.handleChange }
+        >
           <option value="Alimentação">Alimentação</option>
           <option value="Lazer">Lazer</option>
           <option value="Trabalho">Trabalho</option>
           <option value="Transporte">Transporte</option>
           <option value="Saúde">Saúde</option>
         </select>
-      </div>
+        <button
+          type="submit"
+        >
+          Adicionar despesa
+        </button>
+      </form>
     );
   }
 }
 
 const mapStateToProps = (state) => ({
   currencies: state.wallet.currencies,
+  expenses: state.wallet.expenses,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   apiFetch: () => dispatch(fetchAPI()),
+  currencyFetch: (state, id) => dispatch(fetchCurrency(state, id)),
 });
 
 WalletForm.propTypes = {
