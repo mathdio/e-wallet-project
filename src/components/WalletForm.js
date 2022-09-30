@@ -26,7 +26,8 @@ class WalletForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { expenses } = this.props;
+    const { expenses, currencyFetch } = this.props;
+    console.log(expenses.length);
     currencyFetch(this.state, expenses.length);
   };
 

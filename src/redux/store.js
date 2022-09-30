@@ -9,8 +9,8 @@ if (window.Cypress) {
   window.store = store;
 }
 
-store.subscribe(() => {
-  console.log(store.getState());
-});
+// store.subscribe(() => {
+//   console.log(store.getState());
+// });
 
 export default store;
