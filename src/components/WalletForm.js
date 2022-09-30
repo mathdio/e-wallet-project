@@ -27,23 +27,28 @@ class WalletForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { expenses, currencyFetch } = this.props;
-    console.log(expenses.length);
     currencyFetch(this.state, expenses.length);
+    this.setState({
+      value: '',
+      description: '',
+    });
   };
 
   render() {
-    // const { value, description, currency, method, tag } = this.state;
+    const { value, description } = this.state;
     const { currencies } = this.props;
     return (
       <form onSubmit={ this.handleSubmit }>
         <input
           data-testid="value-input"
           name="value"
+          value={ value }
           onChange={ this.handleChange }
         />
         <input
           data-testid="description-input"
           name="description"
+          value={ description }
           onChange={ this.handleChange }
         />
         <select
