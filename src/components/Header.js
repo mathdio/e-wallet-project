@@ -12,6 +12,9 @@ class Header extends Component {
       const fixedConversion = conversion.toFixed(2);
       totalField += Number(fixedConversion);
     });
+    if (totalField === 0) {
+      totalField = '0.00';
+    }
     return (
       <header>
         <span data-testid="email-field">{email}</span>
