@@ -2,13 +2,18 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'react-uuid';
 import { connect } from 'react-redux';
-import { eraseExpense } from '../redux/actions';
+import { eraseExpense, idEdit } from '../redux/actions';
 
 class Table extends Component {
   handleDelete = (id) => {
     const { expenses, deleteExpense } = this.props;
     const newExpensesArray = expenses.filter((expense) => expense.id !== id);
     deleteExpense(newExpensesArray);
+  };
+
+  handleEdit = (id) => {
+    const { editingId } = this.props;
+    editingId(id);
   };
 
   render() {
@@ -47,6 +52,13 @@ class Table extends Component {
                 <td>
                   <button
                     type="button"
+                    data-testid="edit-btn"
+                    onClick={ () => this.handleEdit(expense.id) }
+                  >
+                    Editar
+                  </button>
+                  <button
+                    type="button"
                     data-testid="delete-btn"
                     onClick={ () => this.handleDelete(expense.id) }
                   >
@@ -68,6 +80,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   deleteExpense: (newExpensesArray) => dispatch(eraseExpense(newExpensesArray)),
+  editingId: (id) => dispatch(idEdit(id)),
 });
 
 Table.propTypes = {

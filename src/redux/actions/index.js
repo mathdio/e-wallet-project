@@ -2,6 +2,8 @@ export const LOGIN = 'LOGIN';
 export const CURRENCY = 'CURRENCY';
 export const ADD_EXPENSE = 'ADD_EXPENSE';
 export const ERASE_EXPENSE = 'ERASE_EXPENSE';
+export const ID_EDIT = 'ID_EDIT';
+export const SEND_EDIT = 'SEND_EDIT';
 
 export const loginAction = (payload) => ({
   type: LOGIN,
@@ -20,6 +22,16 @@ export const addExpense = (payload) => ({
 
 export const eraseExpense = (payload) => ({
   type: ERASE_EXPENSE,
+  payload,
+});
+
+export const idEdit = (payload) => ({
+  type: ID_EDIT,
+  payload,
+});
+
+export const sendEdit = (payload) => ({
+  type: SEND_EDIT,
   payload,
 });
 
