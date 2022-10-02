@@ -39,7 +39,7 @@ const initialState = {
 };
 
 describe('testes do componente Table', () => {
-  it('testa se o valor e a descrição do despesa salva no estado global são exibidos na tabela', async () => {
+  it('testa se o valor e a descrição do despesa salva no estado global são exibidos na tabela', () => {
     renderWithRouterAndRedux(<Wallet />, { initialState });
 
     const valueCell = screen.getByRole('cell', { name: /1\.00/i });
@@ -56,5 +56,17 @@ describe('testes do componente Table', () => {
     expect(deleteButton).toBeInTheDocument();
     userEvent.click(deleteButton);
     expect(deleteButton).not.toBeInTheDocument();
+  });
+
+  it('testa se o texto do botão "Adicionar despesa" muda para "Editar despesa" ao clicar em algum botão de editar', () => {
+    renderWithRouterAndRedux(<Wallet />, { initialState });
+
+    const addExpenseButton = screen.getByRole('button', { name: /adicionar despesa/i });
+    expect(addExpenseButton).toBeInTheDocument();
+
+    const editButton = screen.getByRole('button', { name: /editar/i });
+    expect(editButton).toBeInTheDocument();
+    userEvent.click(editButton);
+    expect(addExpenseButton).toHaveTextContent(/editar despesa/i);
   });
 });
