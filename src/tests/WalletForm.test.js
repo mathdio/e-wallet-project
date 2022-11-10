@@ -1,9 +1,9 @@
 import React from 'react';
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import Wallet from '../../pages/Wallet';
-import { renderWithRouterAndRedux } from './renderWith';
-import mockData from './mockData';
+import Wallet from '../pages/Wallet';
+import { renderWithRouterAndRedux } from './helpers/renderWith';
+import mockData from './helpers/mockData';
 
 const initialState = {
   wallet: {
@@ -76,4 +76,20 @@ describe('testes do componente WalletForm', () => {
     const editedExpenseDescription = screen.getByRole('cell', { name: /dois dólares/i });
     expect(editedExpenseValue && editedExpenseDescription).toBeInTheDocument();
   });
+
+  // it('testa se adicionar uma despesa renderiza o valor na lista', async () => {
+  //   renderWithRouterAndRedux(<Wallet />, { initialState });
+
+  //   const valueInput = screen.getByTestId('value-input');
+  //   userEvent.type(valueInput, '2');
+
+  //   const descriptionInput = screen.getByTestId('description-input');
+  //   userEvent.type(descriptionInput, 'dois dólares');
+
+  //   const addExpenseButton = screen.getByRole('button', { name: /adicionar despesa/i });
+  //   userEvent.click(addExpenseButton);
+
+  //   const newExpense = await screen.findByText(/dois dólares/i);
+  //   expect(newExpense).toBeInTheDocument();
+  // });
 });

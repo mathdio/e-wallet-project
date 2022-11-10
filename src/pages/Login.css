@@ -1,0 +1,28 @@
+body {
+  align-items: center;
+  background-color: #2fc18c;
+  background-image: url('./foto-fundo.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  mix-blend-mode: luminosity;
+}
+
+form {
+  align-items: center;
+  background: white;
+  border-radius: 10px;
+  box-shadow: -4px 9px 13px rgba(3, 107, 82, 0.3);
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  justify-content: center;
+  width: 500px;
+}
+
+input , button {
+  margin: 10px;
+  width: 50%;
+}
