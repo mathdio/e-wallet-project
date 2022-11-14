@@ -53,7 +53,16 @@ h1 {
   width: 100%;
 }
 
-.input:focus {
+.password-wrapper {
+  position: relative;
+  border: solid red 1px;
+}
+
+.show-password-input {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  accent-color: var(--green-color);
 }
 
 .button {

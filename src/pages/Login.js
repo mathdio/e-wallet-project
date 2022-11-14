@@ -74,20 +74,23 @@ class Login extends React.Component {
               value={ email }
               onChange={ this.handleChange }
             />
-            <input
-              name="password"
-              type={ inputPasswordType }
-              placeholder="Password"
-              className="input"
-              data-testid="password-input"
-              value={ password }
-              onChange={ this.handleChange }
-            />
-            <input
-              name="showPassword"
-              type="checkbox"
-              onChange={ this.handleShowPassword }
-            />
+            <div className="password-wrapper">
+              <input
+                name="password"
+                type={ inputPasswordType }
+                placeholder="Password"
+                className="input"
+                data-testid="password-input"
+                value={ password }
+                onChange={ this.handleChange }
+              />
+              <input
+                name="showPassword"
+                className="show-password-input"
+                type="checkbox"
+                onClick={ this.handleShowPassword }
+              />
+            </div>
             <button
               type="submit"
               className="button"
