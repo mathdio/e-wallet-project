@@ -10,6 +10,7 @@ class Login extends React.Component {
     email: '',
     password: '',
     buttonDisabled: true,
+    inputPasswordType: 'password',
   };
 
   checkForm = () => {
@@ -40,8 +41,21 @@ class Login extends React.Component {
     history.push('/carteira');
   };
 
+  handleShowPassword = () => {
+    const { inputPasswordType } = this.state;
+    if (inputPasswordType === 'password') {
+      this.setState({
+        inputPasswordType: 'text',
+      });
+    } else {
+      this.setState({
+        inputPasswordType: 'password',
+      });
+    }
+  };
+
   render() {
-    const { email, password, buttonDisabled } = this.state;
+    const { email, password, buttonDisabled, inputPasswordType } = this.state;
     return (
       <main className="form_container">
         <form onSubmit={ this.submitEmail } className="form">
@@ -62,12 +76,17 @@ class Login extends React.Component {
             />
             <input
               name="password"
-              type="password"
+              type={ inputPasswordType }
               placeholder="Password"
               className="input"
               data-testid="password-input"
               value={ password }
               onChange={ this.handleChange }
+            />
+            <input
+              name="showPassword"
+              type="checkbox"
+              onChange={ this.handleShowPassword }
             />
             <button
               type="submit"

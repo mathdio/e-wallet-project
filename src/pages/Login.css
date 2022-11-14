@@ -1,15 +1,3 @@
-/* body {
-  align-items: center;
-  background-color: #2fc18c;
-  background-image: url('./foto-fundo.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  height: 100vh;
-  justify-content: center;
-  mix-blend-mode: luminosity;
-} */
-
 :root {
   --green-color: #2fc18c;
   --blue-color: #003BE5;
@@ -19,7 +7,6 @@
 h1 {
   color: var(--blue-color);
   text-align: center;
-  border: solid red 1px;
 }
 
 .form_container {
@@ -79,20 +66,3 @@ h1 {
   height: 2.5rem;
   width: 100%;
 }
-
-/* form {
-  align-items: center;
-  background: white;
-  border-radius: 10px;
-  box-shadow: -4px 9px 13px rgba(3, 107, 82, 0.3);
-  display: flex;
-  flex-direction: column;
-  height: 300px;
-  justify-content: center;
-  width: 500px;
-}
-
-input , button {
-  margin: 10px;
-  width: 50%;
-} */
