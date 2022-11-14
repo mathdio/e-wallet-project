@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { GrMoney } from 'react-icons/gr';
 import { loginAction } from '../redux/actions';
 import './Login.css';
 
@@ -42,28 +43,42 @@ class Login extends React.Component {
   render() {
     const { email, password, buttonDisabled } = this.state;
     return (
-      <form onSubmit={ this.submitEmail }>
-        <input
-          name="email"
-          type="email"
-          data-testid="email-input"
-          value={ email }
-          onChange={ this.handleChange }
-        />
-        <input
-          name="password"
-          type="password"
-          data-testid="password-input"
-          value={ password }
-          onChange={ this.handleChange }
-        />
-        <button
-          type="submit"
-          disabled={ buttonDisabled }
-        >
-          Entrar
-        </button>
-      </form>
+      <main className="form_container">
+        <form onSubmit={ this.submitEmail } className="form">
+          <h1 className="title-container">
+            <GrMoney style={ { fontSize: '3.125rem' } } />
+            {' '}
+            E-Wallet
+          </h1>
+          <div className="input-container">
+            <input
+              name="email"
+              type="email"
+              placeholder="E-mail"
+              className="input"
+              data-testid="email-input"
+              value={ email }
+              onChange={ this.handleChange }
+            />
+            <input
+              name="password"
+              type="password"
+              placeholder="Password"
+              className="input"
+              data-testid="password-input"
+              value={ password }
+              onChange={ this.handleChange }
+            />
+            <button
+              type="submit"
+              className="button"
+              disabled={ buttonDisabled }
+            >
+              Login
+            </button>
+          </div>
+        </form>
+      </main>
     );
   }
 }

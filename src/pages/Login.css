@@ -1,4 +1,4 @@
-body {
+/* body {
   align-items: center;
   background-color: #2fc18c;
   background-image: url('./foto-fundo.png');
@@ -8,9 +8,79 @@ body {
   height: 100vh;
   justify-content: center;
   mix-blend-mode: luminosity;
+} */
+
+:root {
+  --green-color: #2fc18c;
+  --blue-color: #003BE5;
+  --box-shadow: 0px 9px 13px rgba(3, 107, 82, 0.3);
 }
 
-form {
+h1 {
+  color: var(--blue-color);
+  text-align: center;
+  border: solid red 1px;
+}
+
+.form_container {
+  background-color: var(--green-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.form {
+  background: white;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  height: 50vh;
+  width: 33.33vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: row;
+  gap: 0.9375rem;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9375rem;
+  width: 66.66%;
+}
+
+.input {
+  background-color: black;
+  border: black;
+  border-radius: 0.3125em;
+  color: white;
+  height: 2.5rem;
+  padding: 0.75rem;
+  width: 100%;
+}
+
+.input:focus {
+}
+
+.button {
+  background-color: var(--blue-color);
+  border: #fff;
+  box-shadow: var(--box-shadow);
+  color: #fff;
+  cursor: pointer;
+  border-radius: 0.3125em;
+  height: 2.5rem;
+  width: 100%;
+}
+
+/* form {
   align-items: center;
   background: white;
   border-radius: 10px;
@@ -25,4 +95,4 @@ form {
 input , button {
   margin: 10px;
   width: 50%;
-}
+} */
