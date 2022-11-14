@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import uuid from 'react-uuid';
 import { connect } from 'react-redux';
 import { eraseExpense, idEdit } from '../redux/actions';
+import './Table.css';
 
 class Table extends Component {
   handleDelete = (id) => {

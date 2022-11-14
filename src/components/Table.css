@@ -1,0 +1,38 @@
+:root {
+  --green-color: #2fc18c;
+  --blue-color: #003BE5;
+  --box-shadow: 0px 9px 13px rgba(3, 107, 82, 0.3);
+  --border-radius: 0.625rem;
+  --lighter-blue-color: #4783f1;
+  --white-color: #ffffff;
+}
+
+table {
+  background-color: var(--blue-color);
+  border-radius: var(--border-radius);
+  border-spacing: 0;
+  min-height: 60%;
+  padding: 0px 3.75rem;
+  text-align: center;
+  width: 90%;
+}
+
+thead {
+  color: var(--white-color);
+  border-color: var(--white-color);
+}
+
+tbody {
+  color: var(--green-color);
+  border-color: var(--green-color);
+}
+
+tr:hover {
+  background-color: var(--lighter-blue-color);
+  border-radius: var(--border-radius);
+}
+
+th, td {
+  border-bottom: 1px solid;
+  width: 10rem;
+}
