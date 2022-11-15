@@ -7,12 +7,18 @@
   --white-color: #ffffff;
 }
 
+body {
+  background-color: var(--green-color);
+}
+
 table {
   background-color: var(--blue-color);
   border-radius: var(--border-radius);
   border-spacing: 0;
   min-height: 60%;
   padding: 0px 3.75rem;
+  padding-bottom: 1.25rem;
+  padding-top: 14.5rem;
   text-align: center;
   width: 90%;
 }
@@ -33,6 +39,10 @@ tr:hover {
 }
 
 th, td {
-  border-bottom: 1px solid;
+  border-bottom: 0.0625rem solid;
   width: 10rem;
+}
+
+tr:last-child td {
+  border-bottom: 0rem;
 }
