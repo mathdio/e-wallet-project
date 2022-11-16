@@ -1,0 +1,17 @@
+:root {
+  --green-color: #2fc18c;
+  --blue-color: #003BE5;
+  --box-shadow: 0px 9px 13px rgba(3, 107, 82, 0.3);
+  --border-radius: 0.625rem;
+  --lighter-blue-color: #4783f1;
+  --white-color: #ffffff;
+}
+
+.wallet-form {
+  background-color: red;
+  border-radius: var(--border-radius);
+  height: 30vh;
+  margin-top: 29vh;
+  position: absolute;
+  width: 80vw;
+}
