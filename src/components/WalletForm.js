@@ -60,67 +60,103 @@ class WalletForm extends Component {
     const { currencies, editor } = this.props;
     return (
       <form className="wallet-form">
-        <input
-          data-testid="value-input"
-          name="value"
-          value={ value }
-          onChange={ this.handleChange }
-        />
-        <input
-          data-testid="description-input"
-          name="description"
-          value={ description }
-          onChange={ this.handleChange }
-        />
-        <select
-          data-testid="currency-input"
-          name="currency"
-          onChange={ this.handleChange }
-        >
-          {currencies.map((coin, index) => (
-            <option
-              key={ `${coin}-${index}` }
-              value={ coin }
+        <div className="inputs-container">
+          <label htmlFor="value">
+            Expense value
+            {' '}
+            <input
+              className="WalletForm__text-input"
+              data-testid="value-input"
+              id="value"
+              name="value"
+              value={ value }
+              onChange={ this.handleChange }
+            />
+          </label>
+          <label htmlFor="description">
+            Expense description
+            {' '}
+            <input
+              className="WalletForm__text-input"
+              id="description"
+              data-testid="description-input"
+              name="description"
+              value={ description }
+              onChange={ this.handleChange }
+            />
+          </label>
+          <label htmlFor="currency">
+            Currency
+            {' '}
+            <select
+              className="WalletForm__select_input"
+              id="currency"
+              data-testid="currency-input"
+              name="currency"
+              onChange={ this.handleChange }
             >
-              {coin}
-            </option>
-          ))}
-        </select>
-        <select
-          data-testid="method-input"
-          name="method"
-          onChange={ this.handleChange }
-        >
-          <option value="Dinheiro">Dinheiro</option>
-          <option value="Cartão de crédito">Cartão de crédito</option>
-          <option value="Cartão de débito">Cartão de débito</option>
-        </select>
-        <select
-          data-testid="tag-input"
-          name="tag"
-          onChange={ this.handleChange }
-        >
-          <option value="Alimentação">Alimentação</option>
-          <option value="Lazer">Lazer</option>
-          <option value="Trabalho">Trabalho</option>
-          <option value="Transporte">Transporte</option>
-          <option value="Saúde">Saúde</option>
-        </select>
-        {!editor
-          ? (
-            <button
-              type="button"
-              onClick={ this.addExpense }
+              {currencies.map((coin, index) => (
+                <option
+                  key={ `${coin}-${index}` }
+                  value={ coin }
+                >
+                  {coin}
+                </option>
+              ))}
+            </select>
+          </label>
+          <label htmlFor="method">
+            Payment method
+            {' '}
+            <select
+              id="method"
+              className="WalletForm__select_input"
+              data-testid="method-input"
+              name="method"
+              onChange={ this.handleChange }
             >
-              Adicionar despesa
-            </button>)
-          : (
-            <button
-              type="button"
-              onClick={ this.editExpense }
+              <option value="Dinheiro">Dinheiro</option>
+              <option value="Cartão de crédito">Cartão de crédito</option>
+              <option value="Cartão de débito">Cartão de débito</option>
+            </select>
+          </label>
+          <label htmlFor="tag">
+            Tag
+            {' '}
+            <select
+              id="tag"
+              className="WalletForm__select_input"
+              data-testid="tag-input"
+              name="tag"
+              onChange={ this.handleChange }
             >
-              Editar despesa
-            </button>)}
+              <option value="Alimentação">Alimentação</option>
+              <option value="Lazer">Lazer</option>
+              <option value="Trabalho">Trabalho</option>
+              <option value="Transporte">Transporte</option>
+              <option value="Saúde">Saúde</option>
+            </select>
+          </label>
+        </div>
+        <div className="WalletForm__button-container">
+          {!editor
+            ? (
+              <button
+                type="button"
+                onClick={ this.addExpense }
+                className="WalletForm__button"
+              >
+                Adicionar despesa
+              </button>)
+            : (
+              <button
+                type="button"
+                onClick={ this.editExpense }
+                className="WalletForm__button"
+              >
+                Editar despesa
+              </button>)}
+        </div>
       </form>
     );
   }
