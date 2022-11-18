@@ -48,9 +48,8 @@
   padding: 0.5rem;
 }
 
-input:focus {
-  border: none;
-  /* border-color: transparent; */
+*:focus {
+  outline: var(--blue-color);
 }
 
 label {
