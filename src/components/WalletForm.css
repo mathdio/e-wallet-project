@@ -20,52 +20,39 @@
 }
 
 .inputs-container {
+  align-items: center;
   background-color: var(--gray-color);
   color: var(--blue-color);
   display: flex;
-  /* flex-wrap: row wrap; */
+  flex-wrap: wrap;
   height: 8.4rem;
+  justify-content: space-evenly;
   width: 80vw;
 }
 
 .WalletForm__text-input {
   background-color: var(--gray-color);
-  border: 0.1rem var(--blue-color) solid;
+  border: var(--blue-color) solid;
   border-radius: 0.3rem;
-  color: white;
-  height: 2.5rem;
-  padding: 0.75rem;
-  width: 18.7rem;
+  caret-color: var(--blue-color);
+  color: var(--blue-color);
+  padding: 0.5rem;
+  width: 27rem;
 }
 
 .WalletForm__select_input {
   background-color: var(--gray-color);
-  border: 0.1rem var(--blue-color) solid;
+  border: var(--blue-color) solid;
   border-radius: 0.3rem;
-  color: white;
-  height: 2.5rem;
-  padding: 0.75rem;
-  width: 17rem;
+  color: var(--blue-color);
+  padding: 0.5rem;
 }
 
-.WalletForm__button-container {
-  align-items: center;
-  display: flex;
-  height: 4.7rem;
-  justify-content: center;
+input:focus {
+  border: none;
+  /* border-color: transparent; */
 }
 
-.WalletForm__button {
-  background-color: var(--green-color);
-  border: 0px;
-  border-radius: 0.3rem;
-  box-shadow: var(--box-shadow);
-  color: var(--white-color);
-  cursor: pointer;
-  height: 2.1rem;
-  width: 20.625rem;
-}
-
-.WalletForm__button:active {
-  box-shadow: inset 0px 0px 0.3125rem 0.015625rem black;
+label {
+  /* border: solid red 1px; */
 }

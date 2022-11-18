@@ -66,6 +66,7 @@ class WalletForm extends Component {
             {' '}
             <input
               className="WalletForm__text-input"
+              type="number"
               data-testid="value-input"
               id="value"
               name="value"
@@ -78,6 +79,7 @@ class WalletForm extends Component {
             {' '}
             <input
               className="WalletForm__text-input"
+              type="text"
               id="description"
               data-testid="description-input"
               name="description"
