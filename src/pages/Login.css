@@ -23,7 +23,7 @@ h1 {
 }
 
 .form {
-  background: white;
+  background: var(--white-color);
   border-radius: 0.625rem;
   box-shadow: var(--box-shadow);
   height: 50vh;
