@@ -36,17 +36,14 @@ tbody tr:hover {
 
 th, td {
   border-bottom: 0.0625rem solid;
-  width: 10rem;
+  max-width: 5rem;
 }
 
 tr:last-child td {
   border-bottom: 0rem;
 }
 
-.edit-icon {
-  width: 2.5rem;
-}
-
-.delete-icon {
-  width: 2.5rem;
+.table-icons {
+  margin: 0.9rem;
+  width: 1.5rem;
 }

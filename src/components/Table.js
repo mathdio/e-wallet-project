@@ -46,7 +46,9 @@ class Table extends Component {
               .toFixed(2);
             return (
               <tr key={ uuid() }>
-                <td>{expense.description}</td>
+                <td>
+                  <p>{expense.description}</p>
+                </td>
                 <td>{expense.tag}</td>
                 <td>{expense.method}</td>
                 <td>{fixedValue}</td>
@@ -54,19 +56,19 @@ class Table extends Component {
                 <td>{fixedExchange}</td>
                 <td>{fixedConversion}</td>
                 <td>Real</td>
-                <td>
+                <td className="icons">
                   <input
                     type="image"
                     alt=""
                     src={ editIcon }
-                    className="edit-icon"
+                    className="table-icons"
                     data-testid="edit-btn"
                     onClick={ () => this.handleEdit(expense.id) }
                   />
                   <input
                     type="image"
                     alt=""
-                    className="delete-icon"
+                    className="table-icons"
                     data-testid="delete-btn"
                     src={ redTrashIcon }
                     onClick={ () => this.handleDelete(expense.id) }
