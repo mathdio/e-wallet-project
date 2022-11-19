@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { GrMoney } from 'react-icons/gr';
+import { BsCashCoin } from 'react-icons/bs';
 import { loginAction } from '../redux/actions';
 import './Login.css';
 
@@ -59,11 +59,13 @@ class Login extends React.Component {
     return (
       <main className="form_container">
         <form onSubmit={ this.submitEmail } className="form">
-          <h1 className="title-container">
-            <GrMoney style={ { fontSize: '3.125rem' } } />
-            {' '}
-            E-Wallet
-          </h1>
+          <div className="teste">
+            <h1 className="title-container">
+              <BsCashCoin style={ { fontSize: '3.125rem' } } />
+              {' '}
+              E-Wallet
+            </h1>
+          </div>
           <div className="input-container">
             <input
               name="email"
