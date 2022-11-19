@@ -2,7 +2,7 @@
   --green-color: #2fc18c;
   --blue-color: #003BE5;
   --box-shadow: 0px 9px 13px rgba(3, 107, 82, 0.3);
-  --border-radius: 0.625rem;
+  --border-radius: 0.6rem;
   --bottom-border-radius: 0px 0px 0.6rem 0.625rem;
   --gray-color: #E1E5EB;
   --lighter-blue-color: #4783f1;
@@ -13,6 +13,7 @@
   border-radius: var(--bottom-border-radius);
   display: flex;
   flex-direction: column;
+  font-weight: 700;
   height: 13.1rem;
   margin-top: 30vh;
   position: absolute;
@@ -36,7 +37,8 @@
   border-radius: 0.3rem;
   caret-color: var(--blue-color);
   color: var(--blue-color);
-  padding: 0.5rem;
+  font-weight: 400;
+  padding: 0.3rem;
   width: 27rem;
 }
 
@@ -45,13 +47,40 @@
   border: var(--blue-color) solid;
   border-radius: 0.3rem;
   color: var(--blue-color);
+  font-weight: 400;
   padding: 0.5rem;
+}
+
+.WalletForm__select_input option:active {
+  background-color: var(--blue-color);
 }
 
 *:focus {
   outline: var(--blue-color);
 }
 
-label {
-  /* border: solid red 1px; */
+.WalletForm__button-container {
+  align-items: center;
+  display: flex;
+  height: 4.7rem;
+  justify-content: center;
+}
+
+.WalletForm__button {
+  background-color: var(--green-color);
+  border: none;
+  border-radius: 0.3rem;
+  box-shadow: var(--box-shadow);
+  color: var(--white-color);
+  font-weight: 400;
+  height: 2.5rem;
+  width: 20.6rem;
+}
+
+.WalletForm__button:hover {
+  cursor: pointer;
+}
+
+.WalletForm__button:active {
+  box-shadow: inset 0px 0px 0.3125rem 0.015625rem black;
 }

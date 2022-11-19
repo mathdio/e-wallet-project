@@ -56,7 +56,7 @@ class Table extends Component {
                 <td>{fixedExchange}</td>
                 <td>{fixedConversion}</td>
                 <td>Real</td>
-                <td className="icons">
+                <td>
                   <input
                     type="image"
                     alt=""

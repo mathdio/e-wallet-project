@@ -10,28 +10,24 @@
 .header {
   align-items: center;
   background-color: var(--white-color);
-  border-radius: var(--border-radius);
+  border-radius: 0 0 0.6rem 0.6rem;
   box-shadow: var(--box-shadow);
   display: flex;
-  height: 31.25rem;
-  justify-content: space-evenly;
-  margin-top: -10vh;
+  align-items: flex-start;
+  height: 27rem;
   position: absolute;
   width: 80vw;
 }
 
 .header-container {
   align-items: center;
-  color: var(--green-color);
+  color: var(--blue-color);
   display: flex;
+  font-size: 20px;
+  font-weight: 700;
+  height: 13.6rem;
   justify-content: space-evenly;
-  margin-top: -12.5rem;
   width: 100%;
-}
-
-.header-expenses {
-  display: flex;
-  flex-direction: row;
 }
 
 .expenses-icon {

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { GiTwoCoins } from 'react-icons/gi';
 import { connect } from 'react-redux';
 import './Header.css';
 
@@ -20,17 +19,15 @@ class Header extends Component {
     return (
       <header className="header">
         <div className="header-container">
-          <h1>E-Wallet</h1>
-          <h1 data-testid="total-field" className="header-expenses">
-            <GiTwoCoins style={ { fontSize: '2rem' } } className="expenses-icon" />
-            Expenses:
+          <span>E-Wallet</span>
+          <span data-testid="total-field" className="header-expenses">
+            Total de despesas:
             {' '}
             {totalField}
             {' '}
             BRL
-          </h1>
-          {/* <span data-testid="header-currency-field">BRL</span> */}
-          <h1 data-testid="email-field">{email}</h1>
+          </span>
+          <span data-testid="email-field">{email}</span>
         </div>
       </header>
     );

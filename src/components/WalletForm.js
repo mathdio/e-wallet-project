@@ -62,7 +62,7 @@ class WalletForm extends Component {
       <form className="wallet-form">
         <div className="inputs-container">
           <label htmlFor="value">
-            Expense value
+            Valor da despesa
             {' '}
             <input
               className="WalletForm__text-input"
@@ -75,7 +75,7 @@ class WalletForm extends Component {
             />
           </label>
           <label htmlFor="description">
-            Expense description
+            Descrição da despesa
             {' '}
             <input
               className="WalletForm__text-input"
@@ -88,7 +88,7 @@ class WalletForm extends Component {
             />
           </label>
           <label htmlFor="currency">
-            Currency
+            Moeda
             {' '}
             <select
               className="WalletForm__select_input"
@@ -99,6 +99,7 @@ class WalletForm extends Component {
             >
               {currencies.map((coin, index) => (
                 <option
+                  style={ { backgroundColor: '' } }
                   key={ `${coin}-${index}` }
                   value={ coin }
                 >
@@ -108,7 +109,7 @@ class WalletForm extends Component {
             </select>
           </label>
           <label htmlFor="method">
-            Payment method
+            Método de pagamento
             {' '}
             <select
               id="method"
