@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'react-uuid';
 import { connect } from 'react-redux';
+import editIcon from '../images/editIcon.svg';
+import redTrashIcon from '../images/redTrashIcon.svg';
 import { eraseExpense, idEdit } from '../redux/actions';
 import './Table.css';
 
@@ -53,20 +55,22 @@ class Table extends Component {
                 <td>{fixedConversion}</td>
                 <td>Real</td>
                 <td>
-                  <button
-                    type="button"
+                  <input
+                    type="image"
+                    alt=""
+                    src={ editIcon }
+                    className="edit-icon"
                     data-testid="edit-btn"
                     onClick={ () => this.handleEdit(expense.id) }
-                  >
-                    Editar
-                  </button>
-                  <button
-                    type="button"
+                  />
+                  <input
+                    type="image"
+                    alt=""
+                    className="delete-icon"
                     data-testid="delete-btn"
+                    src={ redTrashIcon }
                     onClick={ () => this.handleDelete(expense.id) }
-                  >
-                    Excluir
-                  </button>
+                  />
                 </td>
               </tr>
             );
