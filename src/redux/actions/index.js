@@ -49,8 +49,7 @@ export function fetchCurrency(state, id) {
   const { value, description, currency, method, tag } = state;
   return async (dispatch) => {
     const resolve = await fetch('https://economia.awesomeapi.com.br/json/all');
-    const data = await resolve.json();
-    const exchangeRates = data;
+    const exchangeRates = await resolve.json();
     dispatch(addExpense({
       id,
       value,
