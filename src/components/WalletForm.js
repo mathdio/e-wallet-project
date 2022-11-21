@@ -25,13 +25,20 @@ class WalletForm extends Component {
     });
   };
 
-  addExpense = () => {
+  addExpense = async () => {
     const { expenses, currencyFetch } = this.props;
-    currencyFetch(this.state, expenses.length);
+    await currencyFetch(this.state, expenses.length);
     this.setState({
       value: '',
       description: '',
     });
+    this.saveLocalStorage();
+  };
+
+  saveLocalStorage = () => {
+    const { expenses } = this.props;
+    console.log(expenses);
+    localStorage.setItem('expenses', JSON.stringify(expenses));
   };
 
   editExpense = () => {
