@@ -37,6 +37,7 @@ class Login extends React.Component {
     e.preventDefault();
     const { email } = this.state;
     const { handleLogin, history } = this.props;
+    localStorage.setItem('loginWallet', JSON.stringify(email));
     handleLogin(email);
     history.push('/carteira');
   };

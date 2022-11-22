@@ -24,7 +24,11 @@ class Table extends Component {
 
   handleDelete = async (id) => {
     const { expenses, deleteExpense } = this.props;
-    const newExpensesArray = expenses.filter((expense) => expense.id !== id);
+    const newExpensesArray = expenses.filter((expense) => expense.id !== id)
+      .map((expense, index) => ({
+        ...expense,
+        id: index,
+      }));
     await deleteExpense(newExpensesArray);
     this.saveLocalStorage();
   };
