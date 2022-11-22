@@ -41,7 +41,7 @@ class WalletForm extends Component {
     localStorage.setItem('expenses', JSON.stringify(expenses));
   };
 
-  editExpense = () => {
+  editExpense = async () => {
     const { idToEdit, expenses, sendingEdit } = this.props;
     const { value, description, currency, method, tag } = this.state;
     const expensesEditedArray = expenses.map((expense) => {
@@ -55,11 +55,12 @@ class WalletForm extends Component {
       }
       return expense;
     });
-    sendingEdit(expensesEditedArray);
+    await sendingEdit(expensesEditedArray);
     this.setState({
       value: '',
       description: '',
     });
+    this.saveLocalStorage();
   };
 
   render() {
