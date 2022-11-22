@@ -8,10 +8,29 @@ import { eraseExpense, idEdit } from '../redux/actions';
 import './Table.css';
 
 class Table extends Component {
-  handleDelete = (id) => {
+  componentDidMount() {
+    const { deleteExpense } = this.props;
+    const loadExpenses = localStorage.getItem('expenses')
+      ? JSON.parse(localStorage.getItem('expenses')) : [];
+    deleteExpense(loadExpenses);
+    // using this action here to avoid duplicate
+  }
+
+  saveLocalStorage = () => {
+    const { expenses } = this.props;
+    console.log(expenses);
+    localStorage.setItem('expenses', JSON.stringify(expenses));
+  };
+
+  handleDelete = async (id) => {
     const { expenses, deleteExpense } = this.props;
-    const newExpensesArray = expenses.filter((expense) => expense.id !== id);
-    deleteExpense(newExpensesArray);
+    const newExpensesArray = expenses.filter((expense) => expense.id !== id)
+      .map((expense, index) => ({
+        ...expense,
+        id: index,
+      }));
+    await deleteExpense(newExpensesArray);
+    this.saveLocalStorage();
   };
 
   handleEdit = (id) => {

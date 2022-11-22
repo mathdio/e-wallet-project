@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { loginAction } from '../redux/actions';
 import './Header.css';
 
 class Header extends Component {
+  componentDidMount() {
+    const { handleLogin } = this.props;
+    if (localStorage.getItem('loginWallet')) {
+      const loginEmail = JSON.parse(localStorage.getItem('loginWallet'));
+      handleLogin(loginEmail);
+    }
+  }
+
   render() {
     const { email, expenses } = this.props;
     let totalField = 0;
@@ -39,8 +48,12 @@ const mapStateToProps = (state) => ({
   expenses: state.wallet.expenses,
 });
 
+const mapDispatchToProps = (dispatch) => ({
+  handleLogin: (email) => dispatch(loginAction(email)),
+});
+
 Header.propTypes = {
   email: PropTypes.string,
 }.isRequired;
 
-export default connect(mapStateToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

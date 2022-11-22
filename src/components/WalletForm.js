@@ -25,16 +25,23 @@ class WalletForm extends Component {
     });
   };
 
-  addExpense = () => {
+  addExpense = async () => {
     const { expenses, currencyFetch } = this.props;
-    currencyFetch(this.state, expenses.length);
+    await currencyFetch(this.state, expenses.length);
     this.setState({
       value: '',
       description: '',
     });
+    this.saveLocalStorage();
   };
 
-  editExpense = () => {
+  saveLocalStorage = () => {
+    const { expenses } = this.props;
+    console.log(expenses);
+    localStorage.setItem('expenses', JSON.stringify(expenses));
+  };
+
+  editExpense = async () => {
     const { idToEdit, expenses, sendingEdit } = this.props;
     const { value, description, currency, method, tag } = this.state;
     const expensesEditedArray = expenses.map((expense) => {
@@ -48,11 +55,12 @@ class WalletForm extends Component {
       }
       return expense;
     });
-    sendingEdit(expensesEditedArray);
+    await sendingEdit(expensesEditedArray);
     this.setState({
       value: '',
       description: '',
     });
+    this.saveLocalStorage();
   };
 
   render() {
