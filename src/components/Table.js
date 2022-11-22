@@ -16,10 +16,17 @@ class Table extends Component {
     // using this action here to avoid duplicate
   }
 
-  handleDelete = (id) => {
+  saveLocalStorage = () => {
+    const { expenses } = this.props;
+    console.log(expenses);
+    localStorage.setItem('expenses', JSON.stringify(expenses));
+  };
+
+  handleDelete = async (id) => {
     const { expenses, deleteExpense } = this.props;
     const newExpensesArray = expenses.filter((expense) => expense.id !== id);
-    deleteExpense(newExpensesArray);
+    await deleteExpense(newExpensesArray);
+    this.saveLocalStorage();
   };
 
   handleEdit = (id) => {
