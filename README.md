@@ -17,8 +17,8 @@ The user is able to:
 
 ## 🎯 Used skills
 - React Class Components
-- state management on Class Components
-- state management across components with Redux
+- local state management on Class Components
+- state management across components with Redux, creating a store, reducers, actions (synchronous and async) and dispatchers;
 
 ## 🏁 Getting started
 To run the application, follow the next steps:
