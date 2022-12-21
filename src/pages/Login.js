@@ -11,6 +11,10 @@ class Login extends React.Component {
     password: '',
     buttonDisabled: true,
     inputPasswordType: 'password',
+    invalidEmail: false,
+    invalidPassword: false,
+    buttonClasses: 'button',
+    passwordClasses: 'password-wrapper',
   };
 
   checkForm = () => {
@@ -21,6 +25,28 @@ class Login extends React.Component {
       this.setState({ buttonDisabled: false });
     } else {
       this.setState({ buttonDisabled: true });
+    }
+    if (email.length > 0 && !emailRegex.test(email)) {
+      this.setState({
+        invalidEmail: true,
+        passwordClasses: 'password-wrapper Login-password-wrapper-warnings',
+      });
+    } else {
+      this.setState({
+        invalidEmail: false,
+        passwordClasses: 'password-wrapper',
+      });
+    }
+    if (password.length > 0 && password.length < passwordLength) {
+      this.setState({
+        invalidPassword: true,
+        buttonClasses: 'button Login-button-warnings',
+      });
+    } else {
+      this.setState({
+        invalidPassword: false,
+        buttonClasses: 'button',
+      });
     }
   };
 
@@ -56,28 +82,36 @@ class Login extends React.Component {
   };
 
   render() {
-    const { email, password, buttonDisabled, inputPasswordType } = this.state;
+    const { email, password, buttonDisabled, inputPasswordType,
+      invalidEmail, invalidPassword, buttonClasses, passwordClasses } = this.state;
     return (
       <main className="form_container">
         <form onSubmit={ this.submitEmail } className="form">
-          <div className="teste">
-            <h1 className="title-container">
-              <BsCashCoin style={ { fontSize: '3.125rem' } } />
-              {' '}
-              E-Wallet
-            </h1>
-          </div>
+          <h1 className="title-container">
+            <BsCashCoin style={ { fontSize: '3.125rem' } } />
+            {' '}
+            E-Wallet
+          </h1>
           <div className="input-container">
-            <input
-              name="email"
-              type="email"
-              placeholder="E-mail"
-              className="input"
-              data-testid="email-input"
-              value={ email }
-              onChange={ this.handleChange }
-            />
-            <div className="password-wrapper">
+            <label htmlFor="email" className="Login-email-label">
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="E-mail"
+                className="input"
+                data-testid="email-input"
+                value={ email }
+                onChange={ this.handleChange }
+              />
+              {invalidEmail && (
+                <p
+                  className="Login__form-warning"
+                >
+                  E-mail&apos;s format must be valid.
+                </p>)}
+            </label>
+            <div className={ passwordClasses }>
               <input
                 name="password"
                 type={ inputPasswordType }
@@ -87,6 +121,10 @@ class Login extends React.Component {
                 value={ password }
                 onChange={ this.handleChange }
               />
+              {invalidPassword && (
+                <p className="Login__form-warning">
+                  Password must have at least 6 characters.
+                </p>)}
               <input
                 name="showPassword"
                 className="show-password-input"
@@ -96,7 +134,7 @@ class Login extends React.Component {
             </div>
             <button
               type="submit"
-              className="button"
+              className={ buttonClasses }
               disabled={ buttonDisabled }
             >
               Login
