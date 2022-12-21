@@ -40,6 +40,10 @@ h1 {
   gap: 0.9375rem;
 }
 
+.Login-title-invalid-warnings {
+  /* margin-top: 15px; */
+}
+
 .input-container {
   display: flex;
   flex-direction: column;
@@ -57,8 +61,24 @@ h1 {
   width: 100%;
 }
 
+.Login-email-label {
+  margin-bottom: 15px;
+}
+
+.Login__form-warning {
+  color: red;
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 2px;
+}
+
 .password-wrapper {
   position: relative;
+  margin-bottom: 15px;
+}
+
+.Login-password-wrapper-warnings {
+  margin-top: -20px;
 }
 
 .show-password-input {
@@ -76,6 +96,10 @@ h1 {
   border-radius: 0.3125rem;
   height: 2.5rem;
   width: 100%;
+}
+
+.Login-button-warnings {
+  margin-top: -20px;
 }
 
 .button:disabled {
