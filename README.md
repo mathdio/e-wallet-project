@@ -1,4 +1,5 @@
-# 💸 A recipes app developed as a [Trybe](https://www.betrybe.com/) Project
+# 💸 e-Wallet 
+A digital wallet developed as a [Trybe](https://www.betrybe.com/) Project
 
 ## 💻 About this project
 This application is a digital wallet to expenses management with currency converter.
