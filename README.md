@@ -7,7 +7,9 @@ The user is able to:
 
 - add, remove or edit an expense;
 - visualize the expenses table;
-- visualize the expenses converted total value;
+- visualize the expenses converted total value.
+
+Application's deploy: https://e-wallet-project-self.vercel.app
 
 ## 🛠️ Built with
 <a href="https://reactjs.org/docs/getting-started.html" target="_blank" rel="noreferrer"><img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" /></a>
